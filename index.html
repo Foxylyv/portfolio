@@ -82,7 +82,7 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 #lb.open{display:flex}#lb img{max-width:100%;max-height:82vh;border-radius:12px;object-fit:contain}
 #lb p{color:#fff;margin:0;font-weight:600;text-align:center}
 .card .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px}.card .links a{font-weight:700;font-size:.92em;color:inherit;text-decoration:underline;text-underline-offset:3px}
-#projetos .grid{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}#projetos .thumb{height:220px}#inicio,footer{position:relative;isolation:isolate}.particulas{position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;overflow:hidden}.particulas canvas{display:block}#inicio>.particulas{top:-60px}footer{padding-top:70px;padding-bottom:80px}.hero{grid-template-columns:1fr!important;justify-items:center;text-align:center;min-height:78vh}.hero>.reveal{max-width:680px}#sobre #foto{float:left;width:150px;margin:4px 22px 8px 0;shape-outside:ellipse(50% 50%);animation:float 7s ease-in-out infinite}#sobre .chips{clear:both;padding-top:6px}@media(max-width:760px){#sobre #foto{width:118px;margin-right:16px}}</style>
+#projetos .grid{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}#projetos .thumb{height:220px}#part-fundo{position:fixed;inset:0;z-index:-1;pointer-events:none}#part-fundo canvas{display:block}footer{padding-top:70px;padding-bottom:80px}.hero{grid-template-columns:1fr!important;justify-items:center;text-align:center;min-height:78vh}.hero>.reveal{max-width:680px}#sobre #foto{float:left;width:150px;margin:4px 22px 8px 0;shape-outside:ellipse(50% 50%);animation:float 7s ease-in-out infinite}#sobre .chips{clear:both;padding-top:6px}@media(max-width:760px){#sobre #foto{width:118px;margin-right:16px}}</style>
 <style>
 .card{display:flex;flex-direction:column}
 .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 10px 4px}
@@ -124,6 +124,7 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 </style>
 </head>
 <body>
+<div id="part-fundo" aria-hidden="true"></div>
 <nav>
 <span style="color:#fff;padding:0 6px">✿</span>
 <a href="#inicio" class="on">Início</a><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#galeria">Galeria</a><a href="#habilidades">Habilidades</a><a href="#contato">Contato</a><a href="#curriculo">Currículo</a>
@@ -131,7 +132,6 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 </nav>
 
 <section id="inicio" class="hero">
-<div class="particulas" id="part-inicio" aria-hidden="true"></div>
 <div class="reveal">
 <p style="margin:0;color:var(--ink2)">Olá, eu sou</p>
 <h1>Lívia Souza <span style="color:var(--acc);font-size:.5em">✿</span></h1>
@@ -232,7 +232,7 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 </div>
 <p style="font-size:3rem;margin:24px 0 0">🐱🪴</p>
 </section>
-<footer><div class="particulas" id="part-rodape" aria-hidden="true"></div>Feito com 💜 por Lívia Souza</footer>
+<footer>Feito com 💜 por Lívia Souza</footer>
 
 <script>
 const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.15});
@@ -281,13 +281,12 @@ escolher(inicio());
       size:{value:4,random:true,anim:{enable:false}},
       line_linked:{enable:true,distance:140,color:acc,opacity:.22,width:1},
       move:{enable:!parado,speed:1.1,direction:'none',random:true,straight:false,out_mode:'out'}},
-      interactivity:{detect_on:'canvas',events:{onhover:{enable:hover,mode:'grab'},onclick:{enable:false},resize:true},
+      interactivity:{detect_on:'window',events:{onhover:{enable:hover,mode:'grab'},onclick:{enable:false},resize:true},
       modes:{grab:{distance:160,line_linked:{opacity:.5}}}},retina_detect:true};
   }
   function montar(){
     (window.pJSDom||[]).forEach(p=>p.pJS.fn.vendors.destroypJS()); window.pJSDom=[];
-    particlesJS('part-inicio',cfg(70,true));
-    particlesJS('part-rodape',cfg(28,true));
+    particlesJS('part-fundo',cfg(90,true));
   }
   montar();
   new MutationObserver(montar).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
