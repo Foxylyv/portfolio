@@ -82,7 +82,7 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 #lb.open{display:flex}#lb img{max-width:100%;max-height:82vh;border-radius:12px;object-fit:contain}
 #lb p{color:#fff;margin:0;font-weight:600;text-align:center}
 .card .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px}.card .links a{font-weight:700;font-size:.92em;color:inherit;text-decoration:underline;text-underline-offset:3px}
-#projetos .grid{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}#projetos .thumb{height:220px}#part-fundo{position:fixed;inset:0;z-index:-1;pointer-events:none}#part-fundo canvas{display:block}footer{padding-top:70px;padding-bottom:80px}.hero{grid-template-columns:1fr!important;justify-items:center;text-align:center;min-height:78vh}.hero>.reveal{max-width:680px}#sobre #foto{float:left;width:150px;margin:4px 22px 8px 0;shape-outside:ellipse(50% 50%);animation:float 7s ease-in-out infinite}#sobre .chips{clear:both;padding-top:6px}@media(max-width:760px){#sobre #foto{width:118px;margin-right:16px}}</style>
+#projetos .grid{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}#projetos .thumb{height:220px}#part-fundo{position:fixed;inset:0;z-index:-1;pointer-events:none}#part-fundo canvas{display:block}footer{padding-top:70px;padding-bottom:80px}.hero{grid-template-columns:1fr!important;justify-items:center;text-align:center;min-height:78vh}.hero>.reveal{max-width:680px}#sobre #foto{float:left;width:150px;margin:4px 22px 8px 0;shape-outside:ellipse(50% 50%);animation:float 7s ease-in-out infinite}#sobre .chips{clear:both;padding-top:6px}@media(max-width:760px){#sobre #foto{width:118px;margin-right:16px}}#menu-btn{display:none}@media(max-width:760px){nav{flex-wrap:wrap;width:min(92vw,420px);max-width:none;overflow:visible;border-radius:26px;padding:6px 10px}nav>span{order:0}#menu-btn{display:block;order:1;margin-left:auto;font-size:.95rem}#theme{order:2}nav a{display:none;order:3;flex-basis:100%;text-align:center;font-size:1rem;padding:10px}nav.aberto a{display:block}nav.aberto{padding-bottom:10px}}</style>
 <style>
 .card{display:flex;flex-direction:column}
 .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 10px 4px}
@@ -127,6 +127,7 @@ footer{text-align:center;color:var(--ink2);padding:40px 24px 60px;font-size:.85r
 <div id="part-fundo" aria-hidden="true"></div>
 <nav>
 <span style="color:#fff;padding:0 6px">✿</span>
+<button id="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰ Menu</button>
 <a href="#inicio" class="on">Início</a><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#galeria">Galeria</a><a href="#habilidades">Habilidades</a><a href="#contato">Contato</a><a href="#curriculo">Currículo</a>
 <button id="theme" aria-label="Alternar tema">☀</button>
 </nav>
@@ -293,5 +294,6 @@ escolher(inicio());
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',montar);
 })();
 </script>
+<script>(function(){const n=document.querySelector("nav"),b=document.getElementById("menu-btn");b.onclick=()=>{const a=n.classList.toggle("aberto");b.setAttribute("aria-expanded",a);b.textContent=a?"✕ Fechar":"☰ Menu"};n.querySelectorAll("a").forEach(l=>l.addEventListener("click",()=>{n.classList.remove("aberto");b.setAttribute("aria-expanded","false");b.textContent="☰ Menu"}))})();</script>
 </body>
 </html>
