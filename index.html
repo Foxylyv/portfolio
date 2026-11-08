@@ -258,7 +258,7 @@ function filtrar(f){document.querySelectorAll('.filters button').forEach(x=>x.cl
 document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>filtrar(b.dataset.f));
 document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{filtrar(b.dataset.go);document.getElementById('galeria').scrollIntoView()});
 let cur=0,cur0=0;
-function inicio(){return Math.max(0,vis().findIndex(b=>b.dataset.t==='sistemas'))}
+function inicio(){return Math.max(0,vis().findIndex(b=>(b.querySelector('img')||{}).alt==='Os gatos — Krita'))}
 function vis(){return [...document.querySelectorAll('.gi:not(.hide)')]}
 function escolher(i){const v=vis();if(!v.length)return;cur=(i+v.length)%v.length;const b=v[cur],m=b.querySelector('img'),g=document.querySelector('.gbig img');g.src=m.src;g.alt=m.alt;document.querySelector('.gbig span').textContent=b.querySelector('span').textContent;document.querySelector('.gview small').textContent=(cur+1)+' / '+v.length;document.querySelectorAll('.gi').forEach(x=>x.classList.toggle('sel',x===b));const s=document.querySelector('.gal');s.scrollTo({left:b.offsetLeft-(s.clientWidth-b.offsetWidth)/2,behavior:cur0?'smooth':'auto'});cur0=1}
 document.querySelectorAll('.gi').forEach(b=>b.onclick=()=>escolher(vis().indexOf(b)));
