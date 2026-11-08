@@ -2,15 +2,13 @@
 
 ### ▶ [Abrir o portfólio ao vivo](https://foxylyv.github.io/portfolio/)
 
-Desenvolvedora full stack júnior e game dev. Aqui estão meus projetos reais: o jogo autoral
-**Snack Island** (Unity/C#), a landing page de uma consultora de seguros, o sistema de estoque e
-encomendas de uma rede de cafeterias (Django + React) e minhas artes digitais.
+Desenvolvedora full stack júnior e game dev. Abra o portfólio para ver meus projetos: jogos,
+a landing page de uma consultora de seguros, o sistema de estoque e encomendas de uma rede de
+cafeterias (Django + React) e minhas artes digitais.
 
 | Início | Celular |
 |---|---|
 | ![Início do portfólio](screenshots/inicio.png) | <img src="screenshots/celular.png" width="260"> |
-| **Projetos** | **Galeria** |
-| ![Projetos](screenshots/projetos.png) | ![Galeria](screenshots/galeria.png) |
 
 ## Projetos com demonstração
 
